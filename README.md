@@ -1,6 +1,6 @@
 # Chromecast System Tray Remote Control
 
-[screenshot](https://github.com/brunogamacatao/chromecast_remote/blob/master/screenshots/shot.png?raw=true)
+![screenshot](https://github.com/brunogamacatao/chromecast_remote/blob/master/screenshots/shot.png?raw=true)
 
 This is a simple toy project used to quickly control a chromecast dongle via system tray icons (play, pause, stop).
 
