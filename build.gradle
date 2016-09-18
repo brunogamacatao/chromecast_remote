@@ -1,0 +1,50 @@
+def mainClass = 'br.brunocatao.Main'
+
+group 'br.brunocatao'
+version '1.0-SNAPSHOT'
+
+buildscript {
+  repositories {
+    jcenter()
+    maven {
+      url "https://plugins.gradle.org/m2/"
+    }
+  }
+  dependencies {
+    classpath 'com.github.jengelman.gradle.plugins:shadow:1.2.3'
+    classpath 'gradle.plugin.edu.sc.seis:macAppBundle:2.1.6'
+  }
+}
+
+apply plugin: 'java'
+apply plugin: 'com.github.johnrengelman.shadow'
+apply plugin: 'edu.sc.seis.macAppBundle'
+
+sourceCompatibility = 1.8
+
+repositories {
+  mavenCentral()
+}
+
+dependencies {
+  testCompile group: 'junit', name: 'junit', version: '4.11'
+  compile 'su.litvak.chromecast:api-v2:0.9.2'
+}
+
+task execute(type:JavaExec) {
+  main = mainClass
+  classpath = sourceSets.main.runtimeClasspath
+}
+
+jar {
+  manifest {
+    attributes 'Main-Class': mainClass
+  }
+}
+
+macAppBundle {
+  mainClassName = mainClass
+  appName = 'Controle Remoto Chromecast'
+  icon = 'icon.icns'
+
+}
